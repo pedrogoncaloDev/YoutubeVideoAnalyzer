@@ -46,13 +46,25 @@ O `docker-compose.yml` já cuida do ffmpeg, das dependências Python e da comuni
 
 ## Uso
 
-Ao rodar, o script pede a URL do vídeo:
+### Linha de comando
+
+Ao rodar `python main.py`, o script pede a URL do vídeo:
 
 ```
 Cole a URL do vídeo do YouTube: https://www.youtube.com/watch?v=...
 ```
 
 O resumo é exibido no terminal e também salvo em `resumo.txt`.
+
+### Interface gráfica
+
+Também há uma interface simples em Tkinter (biblioteca padrão do Python, não precisa instalar nada a mais):
+
+```powershell
+python gui.py
+```
+
+Cole a URL, clique em "Resumir" (ou tecle Enter) e acompanhe o progresso na barra de status. O resumo aparece na caixa de texto e também é salvo em `resumo.txt`. O processamento roda em segundo plano, então a janela não trava durante o download/transcrição/resumo.
 
 ## Configuração
 
@@ -64,10 +76,11 @@ No topo do [main.py](main.py):
 ## Estrutura do projeto
 
 ```
-main.py              script principal
-requirements.txt     dependências Python
-Dockerfile           imagem do script
-docker-compose.yml   orquestra o script + servidor Ollama
+main.py               script principal / linha de comando
+gui.py                interface gráfica (Tkinter)
+requirements.txt      dependências Python
+Dockerfile            imagem do script
+docker-compose.yml    orquestra o script + servidor Ollama
 ```
 
 ## Limitações conhecidas
